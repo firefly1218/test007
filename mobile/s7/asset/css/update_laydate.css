@@ -1,0 +1,45 @@
+
+/*layui-laydate*/
+.laydate-theme-smart.layui-laydate { border-radius: 6px; }
+
+.laydate-theme-smart.layui-laydate .layui-this{background-color:#5986f3 !important;border-radius: 100%;}
+
+.laydate-theme-smart .layui-laydate-header {background-color:#5986f3;}
+.laydate-theme-smart .layui-laydate-header { line-height: normal; padding: 10px 0 10px; border-radius: 6px 6px 0 0; }
+
+.laydate-theme-smart .layui-laydate-header i.laydate-prev-y{display: none}
+.laydate-theme-smart .layui-laydate-header i.laydate-prev-m{left: 10px;}
+.laydate-theme-smart .layui-laydate-header i.laydate-next-y{display: none}
+.laydate-theme-smart .layui-laydate-header i.laydate-next-m{right: 10px;}
+
+.laydate-theme-smart .layui-laydate-content{padding: 5px;}
+.laydate-theme-smart .layui-laydate-list li:hover{border-radius: 100%;}
+.laydate-theme-smart .layui-laydate-footer{border-radius: 0 0 6px 6px; padding: 10px;}
+.laydate-theme-smart .layui-laydate .layui-this{ border-radius: 100%;}
+
+.laydate-theme-smart .layui-laydate-main{width: 226px;}
+
+.laydate-theme-smart, .laydate-theme-smart .layui-laydate-header i, .laydate-theme-smart .layui-laydate-header span {
+  color: #f6f6f6;
+}
+.laydate-theme-smart .layui-laydate-header i:hover, .laydate-theme-smart .layui-laydate-header span:hover {
+  color: #fff;
+}
+.laydate-theme-smart .laydate-btns-confirm, .laydate-theme-smart .laydate-btns-clear {
+  /*display: none;*/
+}
+.laydate-theme-smart .laydate-footer-btns {
+  width: 100%;
+  display: table;
+  position: static;
+}
+.laydate-theme-smart .laydate-footer-btns > span{
+  border: none;
+  color: #5986f3;
+  text-align: center;
+  display: table-cell;
+}
+.laydate-theme-smart .laydate-footer-btns > span:hover {
+  color: #5986f3;
+  background: #eeeeee;
+}

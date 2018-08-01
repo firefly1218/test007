@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"/>
+  <title>总体统计分析</title>
+  <link rel="stylesheet" href="../asset/css/total_analyze.css">
+  <link rel="stylesheet" href="../asset/css/update_laydate.css">
+  <script type="text/javascript" src="../vendor/jquery/jquery-1.12.4.js"></script>
+  <script type="text/javascript" src="../vendor/flexible.js"></script>
+  <script type="text/javascript" src="../vendor/laydate/laydate.js"></script>
+  <script type="text/javascript" src="../vendor/echarts/echarts.js"></script>
+  <script type="text/javascript" src="../vendor/moment/moment.js"></script>
+  <script type="text/javascript" src="../asset/js/service.data.js"></script>
+  <script type="text/javascript" src="../asset/js/chart/device-number.js"></script>
+  <script type="text/javascript" src="../asset/js/total_analyze.js"></script>
+
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <img class="icon-back" src="../asset/image/index/back@2x.png">
+    <span class="h-title">体脂秤7-总体统计指标</span>
+  </header>
+  <div class="content-main">
+    <div class="tab-list">
+      <div data-tab-target="#tab-major" class="tab tab-active" id="total-index">总体指标</div>
+      <div data-tab-target="#tab-device-active" class="tab" id="device-living">活跃度</div>
+      <div data-tab-target="#tab-device-new" class="tab" id="device-newly">新增设备</div>
+      <div data-tab-target="#tab-device-keep" class="tab" id="device-keep">留存设备</div>
+    </div>
+    <div class="tab-contents">
+      
+      <!--总体统计-->
+      <div class="tab-content tab-active" id="tab-major" style="border-bottom: 0px solid #ffffff">
+        <div class="content-box">
+          <div class="widgets">
+            <div class="widget widget-main">
+              <div style="height:3rem;">
+                <div class="widget-text-1">
+                  <p>实时设备总量</p>
+                </div>
+                <div class="widget-text-2" id="total-count"></div>
+                <p class="widget-text-3">(每5分钟更新一次)</p>
+              </div>
+            </div>
+            <div class="widget">
+              <div>
+                <div class="widget-text-label">
+                  <span class="rate-title">日活率</span>
+                  <span id="date-change-active-day" class="widget-date-change"></span>
+                </div>
+                <div class="widget-text-ratio">
+                  <span id="day-pert">22%</span>
+                  <span class="widget-text-up" id="day-pert-rate"></span>
+                </div>
+              
+              </div>
+            </div>
+            <div class="widget">
+              <div>
+                <div class="widget-text-label">
+                  <span class="rate-title">周活率</span>
+                  <span id="date-change-active-week" class="widget-date-change"></span>
+                </div>
+                <div class="widget-text-ratio">
+                  <span id="week-pert"></span>
+                  <span class="widget-text-up" id="week-pert-rate"></span>
+                </div>
+              
+              </div>
+            </div>
+            <div class="widget">
+              <div>
+                <div class="widget-text-label">
+                  <span class="rate-title">月活率</span>
+                  <span id="date-change-active-month" class="widget-date-change"></span>
+                </div>
+                <div class="widget-text-ratio">
+                  <span id="month-pert"></span>
+                  <span class="widget-text-up" id="month-pert-rate"></span>
+                </div>
+              
+              </div>
+            </div>
+          
+          </div>
+          <div class="box-panel">
+            <div class="box-panel-header">
+              <span>设备构成</span>
+              <span id="date-change-device-compose" class="compose-date-change">2018-03-28</span>
+            </div>
+            <div class="box-panel-content">
+              <div id="chart-device-compose" class="chart-content clearfix" style="height:8.76rem;">
+                <div  class="pie-chart fl">
+                  <div  id="e1"></div>
+                  <p>
+                    <span style="font-size: 0.28rem;">缄默设备</span>
+                    <span id="pie-title-1"></span>
+                  </p>
+                </div>
+                
+                <div class="pie-chart fr">
+                  <div id="e2"></div>
+                  <p>
+                    <span style="font-size: 0.28rem;">流失设备</span>
+                    <span id="pie-title-2"></span>
+                  </p>
+                </div>
+                <div class="pie-chart fl">
+                  <div id="e3"></div>
+                  <p>
+                    <span style="font-size: 0.28rem;">回流设备</span>
+                    <span id="pie-title-3" ></span>
+                  </p>
+                </div>
+                
+                <div class="pie-chart fr">
+                  <div id="e4"></div>
+                  <p>
+                    <span style="font-size: 0.28rem;">忠实设备</span>
+                    <span id="pie-title-4"></span>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!--活跃度-->
+      <div class="tab-content" id="tab-device-active" style="border-bottom: 0px solid #ffffff">
+        <div class="content-box">
+          <div class="box-content">
+            <div class=" tab-list tab-list-nav" id="active-day-week-month" style="margin:0 1.2rem;">
+              <div class="tab-list-text tab-list-nav-active" data-tab-target="#tab-device-active-day">日</div>
+              <div class=" tab-list-text" data-tab-target="#tab-device-active-week">周</div>
+              <div class=" tab-list-text" data-tab-target="#tab-device-active-month">月</div>
+            </div>
+            <div class="tab-contents">
+              <div id="tab-device-active-day" class="tab-content tab-active" style="border-bottom: 0px solid #ffffff">
+                <div id="chart-device-active-day" class="chart-content" style="height: 550px;">日</div>
+              </div>
+              <div id="tab-device-active-week" class="tab-content" style="border-bottom: 0px solid #ffffff">
+                <div id="chart-device-active-week" class="chart-content" style="height: 550px;">周</div>
+              </div>
+              <div id="tab-device-active-month" class="tab-content" style="border-bottom: 0px solid #ffffff">
+                <div id="chart-device-active-month" class="chart-content" style="height: 550px;">月</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--新增设备-->
+      <div class="tab-content" id="tab-device-new" style="border-bottom: 0px solid #ffffff">
+        <div class="content-box">
+          <div class="box-content">
+            <div class="tab-list tab-list-nav" id="new-day-week-month" style="margin:0 1.2rem;">
+              <div class="tab-list-text tab-list-nav-active" data-tab-target="#tab-device-new-day">日</div>
+              <div class=" tab-list-text" data-tab-target="#tab-device-new-week">周</div>
+              <div class=" tab-list-text" data-tab-target="#tab-device-new-month">月</div>
+            </div>
+            <div class="tab-contents">
+              <div id="tab-device-new-day" class="tab-content tab-active" style="border-bottom: 0px solid #ffffff">
+                <div id="chart-device-new-day" class="chart-content" style="height: 550px">日</div>
+              </div>
+              <div id="tab-device-new-week" class="tab-content" style="border-bottom: 0px solid #ffffff">
+                <div id="chart-device-new-week" class="chart-content" style="height: 550px;">周</div>
+              </div>
+              <div id="tab-device-new-month" class="tab-content" style="border-bottom: 0px solid #ffffff">
+                <div id="chart-device-new-month" class="chart-content" style="height: 550px;">月</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!--留存设备-->
+      <div class="tab-content" id="tab-device-keep" style="border-bottom: 0px solid #ffffff">
+        <div class="content-box">
+          <div class="box-content">
+            <div class=" tab-list tab-list-nav" id="keep-day-week-month" style="margin:0 1.2rem;">
+              <div class="tab-list-text tab-list-nav-active" data-tab-target="#tab-device-keep-day">日</div>
+              <div class=" tab-list-text" data-tab-target="#tab-device-keep-week">周</div>
+              <div class=" tab-list-text" data-tab-target="#tab-device-keep-month">月</div>
+            </div>
+            <div class="tab-contents">
+              <div id="tab-device-keep-day" class="tab-content tab-active" style="border-bottom: 0px solid #ffffff">
+                <div id="chart-device-keep-day" class="chart-content" style="height: 550px">日</div>
+              </div>
+              <div id="tab-device-keep-week" class="tab-content" style="border-bottom: 0px solid #ffffff">
+                <div id="chart-device-keep-week" class="chart-content" style="height: 550px;">周</div>
+              </div>
+              <div id="tab-device-keep-month" class="tab-content" style="border-bottom: 0px solid #ffffff">
+                <div id="chart-device-keep-month" class="chart-content" style="height: 550px ;">月</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

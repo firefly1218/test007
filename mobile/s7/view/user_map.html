@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"/>
+  <title>用户分布</title>
+  <link rel="stylesheet" href="../asset/css/user_map.css">
+  <link rel="stylesheet" href="../asset/css/update_laydate.css">
+  <script type="text/javascript" src="../vendor/jquery/jquery-1.12.4.js"></script>
+  <script type="text/javascript" src="../vendor/flexible.js"></script>
+  <script type="text/javascript" src="../vendor/laydate/laydate.js"></script>
+  <script type="text/javascript" src="../vendor/echarts/echarts.js"></script>
+  <script type="text/javascript" src="../vendor/echarts/map/js/china.js"></script>
+  <script type="text/javascript" src="../vendor/moment/moment.js"></script>
+  <script type="text/javascript" src="../asset/js/service.data.js"></script>
+  <script type="text/javascript" src="../asset/js/chart/user-sex.js"></script>
+  <script type="text/javascript" src="../asset/js/chart/user-age.js"></script>
+  <script type="text/javascript" src="../asset/js/chart/user-region.js"></script>
+  <script type="text/javascript" src="../asset/js/chart/user-region-age.js"></script>
+  <script type="text/javascript" src="../asset/js/chart/user-sex-age.js"></script>
+  <script type="text/javascript" src="../asset/js/chart/user-sex-region.js"></script>
+  <script type="text/javascript" src="../asset/js/user_map.js"></script>
+
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <img class="icon-back" src="../asset/image/index/back@2x.png">
+    <span class="h-title">体脂秤7-用户成分分布</span>
+  </header>
+  <div class="content-main">
+    <!--tab栏-->
+    <div class="tab-list" style="height:0.9rem;line-height: 0.9rem;background-color: #ffffff;border-bottom: 2px
+    solid #dededf;">
+      <div data-tab-target="#tab-user-major" class="tab tab-active toggle-nav">用户总体分布</div>
+      <div data-tab-target="#tab-user-tgi" class="tab toggle-nav">用户TGI分布</div>
+    </div>
+    <!--内容部分布局-->
+    <div class="tab-contents">
+      <!--用户分布部分-->
+      <div id="tab-user-major" class="tab-content tab-active">
+        <div class="content-box">
+          <!--地域-->
+          <div class="box-panel">
+            <div class="box-panel-header clearfix">
+              <span>地域分布</span>
+              <span class="date-change" id="date-change-user-region"></span>
+            </div>
+            <div class="box-panel-content" style="padding:0.56rem;height: 14.2rem;width: 7.5rem;">
+              <div id="chart-user-region" style="height: 13.8rem">
+              </div>
+            </div>
+          </div>
+          <!--性别-->
+          <div class="box-panel">
+            <div class="box-panel-header clearfix">
+              <span>性别分布</span>
+              <span class="date-change" id="date-change-user-sex"></span>
+            </div>
+            <div class="box-panel-content" style="">
+              <div id="chart-user-sex" style="height: 4.46rem;width: 7.5rem;"></div>
+            </div>
+          </div>
+          <!--年龄-->
+          <div class="box-panel">
+            <div class="box-panel-header clearfix">
+              <span>年龄分布</span>
+              <span class="date-change" id="date-change-user-age"></span>
+            </div>
+            <div class="box-panel-content" style="">
+              <div id="chart-user-age" style="padding-left:0.32rem;height: 5.5rem;width: 7.5rem;"></div>
+            </div>
+          </div>
+        </div>
+      
+      </div>
+      <!--用户tgi部分-->
+      <div id="tab-user-tgi" class="tab-content">
+        <div class="content-box">
+          <!--地域年龄tgi-->
+          <div class="box-panel">
+            <div class="box-panel-header clearfix">
+              <span>地域年龄TGI</span>
+              <span class="date-change" id="date-change-user-region-age"></span>
+            </div>
+            <div class="box-panel-content" style="height: 29.64rem;width: 7.5rem;">
+              <div id="chart-user-region-age" style="height: 29.64rem;width: 7.5rem;">
+                <div class="chart-content chart-age-0" style="height: 4.88rem;background-color: #5FB878"></div>
+                <div class="chart-content chart-age-1" style="height: 4.88rem;background-color: #009E94"></div>
+                <div class="chart-content chart-age-2" style="height: 4.88rem;background-color: darkolivegreen"></div>
+                <div class="chart-content chart-age-3" style="height: 4.88rem;background-color: #5885ed"></div>
+                <div class="chart-content chart-age-4" style="height: 4.88rem;background-color: #5FB878"></div>
+                <div class="chart-content chart-age-5" style="height: 4.88rem;background-color: cornflowerblue"></div>
+              </div>
+            </div>
+          </div>
+          <!--性别年龄tgi-->
+          <div class="box-panel">
+            <div class="box-panel-header clearfix">
+              <span>性别年龄TGI</span>
+              <span class="date-change" id="date-change-user-sex-age"></span>
+            </div>
+            <div class="box-panel-content" style="height: 8rem;width: 7.5rem;">
+              <div id="chart-user-sex-age" class="chart-content" style="height: 8rem;width: 7.5rem;"></div>
+            </div>
+          </div>
+          <!--性别地域tgi-->
+          <div class="box-panel">
+            <div class="box-panel-header clearfix">
+              <span>性别地域TGI</span>
+              <span class="date-change" id="date-change-user-sex-region"></span>
+            </div>
+            <div class="box-panel-content" style="height:11rem;width: 7.5rem;">
+              <div id="chart-user-sex-region" class="chart-content" style="height:10rem;width: 7.5rem;">
+              </div>
+            </div>
+          </div>
+        </div>
+  
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

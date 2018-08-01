@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"/>
+  <title>用户健康</title>
+  <link rel="stylesheet" href="../asset/css/user_health.css">
+  <link rel="stylesheet" href="../asset/css/update_laydate.css">
+  <script type="text/javascript" src="../vendor/jquery/jquery-1.12.4.js"></script>
+  <script type="text/javascript" src="../vendor/flexible.js"></script>
+  <script type="text/javascript" src="../vendor/laydate/laydate.js"></script>
+  <script type="text/javascript" src="../vendor/echarts/echarts.js"></script>
+  <script type="text/javascript" src="../vendor/moment/moment.js"></script>
+  <script type="text/javascript" src="../asset/js/chart/health-indicator.js"></script>
+  <script type="text/javascript" src="../asset/js/service.data.js"></script>
+  <script type="text/javascript" src="../asset/js/user_health.js"></script>
+
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <img class="icon-back" src="../asset/image/index/back@2x.png">
+    <span class="h-title">体脂秤7-用户健康状况</span>
+  </header>
+  <div class="content-main">
+    <div class="content-panel" id="body-label">
+      <div class="panel-header clearfix">
+        <span>10项身体指标</span>
+        <span class="btn-date-change" id="date-change-body-index"></span>
+      </div>
+      <div class="panel-content">
+        <div class="box tag-0">
+          <div class="desc">
+            <div class="title-label"><span class="label-num"></span> <span>人</span></div>
+            <div class="label-title"></div>
+          </div>
+          <img class="img-label" src="../asset/image/health/thin.png" style="width: 0.55rem;">
+        </div>
+        <div class="box tag-1">
+          <div class="desc">
+            <div class="title-label"><span class="label-num"></span> <span>人</span></div>
+            <div class="label-title"></div>
+          </div>
+          <img class="img-label" src="../asset/image/health/emaciation.png" style="width: 0.56rem;">
+        </div>
+        <div class="box tag-2">
+          <div class="desc">
+            <div class="title-label"><span class="label-num"></span> <span>人</span></div>
+            <div class="label-title"></div>
+          </div>
+          <img class="img-label" src="../asset/image/health/slim@2x.png" style="width: 0.52rem;">
+        </div>
+        <div class="box tag-3">
+          <div class="desc">
+            <div class="title-label"><span class="label-num"></span> <span>人</span></div>
+            <div class="label-title"></div>
+          </div>
+          <img class="img-label" src="../asset/image/health/Muscleslim@2x.png" style="width: 0.56rem;">
+        </div>
+        <div class="box tag-4">
+          <div class="desc">
+            <div class="title-label"><span class="label-num"></span> <span>人</span></div>
+            <div class="label-title"></div>
+          </div>
+          <img class="img-label" src="../asset/image/health/healthy@2x.png" style="width: 0.56rem;">
+        </div>
+        <div class="box tag-5">
+          <div class="desc">
+            <div class="title-label"><span class="label-num"></span> <span>人</span></div>
+            <div class="label-title"></div>
+          </div>
+          <img class="img-label" src="../asset/image/health/muscle@2x.png" style="width: 0.56rem;">
+        </div>
+        <div class="box tag-6">
+          <div class="desc">
+            <div class="title-label"><span class="label-num"></span> <span>人</span></div>
+            <div class="label-title"></div>
+          </div>
+          <img class="img-label" src="../asset/image/health/sport@2x.png" style="width: 0.56rem;">
+        </div>
+        <div class="box tag-7">
+          <div class="desc">
+            <div class="title-label"><span class="label-num"></span> <span>人</span></div>
+            <div class="label-title"></div>
+          </div>
+          <img class="img-label" src="../asset/image/health/coverfat@2x.png" style="width: 0.56rem;">
+        </div>
+        <div class="box tag-8">
+          <div class="desc">
+            <div class="title-label"><span class="label-num"></span> <span>人</span></div>
+            <div class="label-title"></div>
+          </div>
+          <img class="img-label" src="../asset/image/health/beingfat@2x.png" style="width: 0.56rem;">
+        </div>
+        <div class="box tag-9">
+          <div class="desc">
+            <div class="title-label"><span class="label-num"></span> <span>人</span></div>
+            <div class="label-title"></div>
+          </div>
+          <img class="img-label" src="../asset/image/health/fat@2x.png" style="width: 0.56rem;">
+        </div>
+      </div>
+    </div>
+    <div class="content-panel">
+      <div class="panel-header clearfix">
+        <span>健康指标分布</span>
+        <span class="btn-date-change" id="date-change-health-index"></span>
+      </div>
+      <div class="panel-content" style="padding:0.5rem 0.4rem;">
+        <div class="box-chart" id="test" style="height: 13rem;width:7.5rem;">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>
